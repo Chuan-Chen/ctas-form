@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js"></script> 
+        <link rel="stylesheet" href="./src/css/main.css">
+        <script src="./src/js/main.js"></script>
+    </head>
+<body>
+    <button class = "printBTN" onclick = "window.print()">Print</button>
+    <div style="Z-INDEX: 0">
+        <div>
+            <div class = "header" style="text-align: center">Center for Tutoring and Academic Support &nbsp;</div>
+            <p style="font-size: 10pt; font-style: italic; text-align: center;">
+                Tutor Log - Individual Session 
+            </p>
+            
+            <table style="width: 100%">
+                <tbody>
+                    <tr>
+                        <td colspan="1">Name :</td>
+                        <td><input id="lblName" placeholder="Name" class = "header-input"></input></td>
+                        <td>Student ID#:</td>
+                        <td><input id="lblID" placeholder="Student ID"></input></td>
+                        
+                        <td rowspan="4" class = "sessiontype">Type of session <br />
+                            <input type="radio" id="optInperson" name="typesession" />&nbsp;In Person&nbsp;<br />
+                            <input type="radio" id="optOnline" name="typesession" />&nbsp;Online
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Instrutor:</td>
+                        <td><input id="lblInstrutor" placeholder="Instructor"></input></td>
+                        <td>Course/Section:</td>
+                        <td><input id="lblCourse" placeholder="Course/Section"></input></td>
+                    </tr>
+                    <tr>
+                        <td>Tutor:</td>
+                        <td><input id="lblTutor" placeholder="Tutor"></input></td>
+                        <td>Date:</td>
+                        <td><input id="lblDate" placeholder="Date"></input></td>
+                    </tr>
+                    <tr>
+                        <td> Start:&nbsp;</td>
+                        <td><input type="text" id="txtStart" class="textboxcenter" onfocus="this.placeholder=''" /></td>
+                        <td>End:&nbsp;</td>
+                        <td><input type="text" id="txtEnd" class="textboxcenter" /></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+        </div>
+    
+        <div>
+    
+            <h2 style="text-align: center">Center for Tutoring and Academic Support &nbsp;</h2>
+            <p style="font-size: 10pt; font-style: italic; text-align: center; margin-top: -15px;">
+                Course Tutor Log - Group Session
+            </p>
+            <style>
+                table,
+                td,
+                th {
+                    border: 1px solid #595959;
+                    border-collapse: collapse;  
+                }
+    
+                td,
+                th {
+                    padding: 3px;
+                    width: 30px;
+                    height: 25px;
+                }
+    
+                th {
+                    background: #f0e6cc;
+                }
+    
+                .even {
+                    background: #fbf8f0;
+                }
+    
+                .odd {
+                    background: #fefcf9;
+                }
+            </style>
+            <table style="width: 100%">
+                <tbody>
+                    <tr>
+                        <td>Tutor:</td>
+                        <td><label id="lblTutor1">Label</label></td>
+                        <td>Date:</td>
+                        <td><label id="lblDate1">Label</label></td>
+                    </tr>
+                    <tr>
+                        <td>Type of session </td>
+                        <td colspan="3">
+                            <input type="radio" id="optInperson1" name="typesession" />&nbsp;In Person&nbsp;
+                            <input type="radio" id="optOnline1" name="typesession" />&nbsp;Online
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Start:&nbsp;</td>
+                        <td><input type="text" id="txtStart1" class="textboxcenter" onfocus="this.placeholder=''" /></td>
+                        <td>End:&nbsp;</td>
+                        <td><input type="text" id="txtEnd1" class="textboxcenter" /></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <div class = student-section>
+                <table id="grdStdList" class="body-text" cellpadding="0">
+                    <colgroup>
+                        <col style="width: 200px" />
+                        <col style="width: 110px" />
+                        <col style="width: 100px" />
+                        <col style="width: 90px" />
+                        <col style="width: 200px" />
+                    </colgroup>
+                    <thead style="background: #3D3E78; color: white; text-align: center; font-weight: bold;">
+                        <tr>
+                            <td>Student Name</td>
+                            <td>Student ID</td>
+                            <td>Course</td>
+                            <td>Section</td>
+                            <td>Instructor's Name</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Add your data rows here -->
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+        <div >
+            <hr style="border-top: 1px solid #000000" />
+                <div id="pnlLcSpeednote" class = 'body-panel'>
+
+        
+                    <div class="resContainer">
+                        <p class="reslabel">A. Reason(s) student came for tutoring:</p>
+                        <div class="flexRow2">
+                            <div class="rescol-50">
+                                <input type="checkbox" id="A7" class="checkBox" />&nbsp; Excel&nbsp;
+                            </div>
+                            <div class="rescol-50">
+                                <input type="checkbox" id="A4" class="checkBox" />&nbsp; Prepare for upcoming exam/quiz&nbsp;
+                            </div>
+                            <div class="rescol-50">
+                                <input type="checkbox" id="A5" class="checkBox" />&nbsp; Learn/Practice study skills
+                            </div>
+                            <div class="rescol-50">
+                                <input type="checkbox" id="A2" class="checkBox" />&nbsp; Review assignment guidelines
+                            </div>
+                            <div class="rescol-50">
+                                <input type="checkbox" id="A8" class="checkBox" />&nbsp; Maple
+                            </div>
+                            <div class="rescol-50">
+                                <input type="checkbox" id="A3" class="checkBox" />&nbsp; Review concepts from homework/graded
+                                exam/lab report*
+                            </div>
+                            <div class="rescol-50">&nbsp; Other&nbsp;
+                                <input type="text" id="A6" class="verficationInput" readonly />
+                            </div>
+                            <div class="rescol-50">
+                                <input type="checkbox" id="A1" class="checkBox" />&nbsp; Review/Difficulty with course content
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resContainer">
+                        <p class="reslabel">B. List of topics/concepts:</p>
+                        <div class="flexRow2">
+                            <div class="rescol-50">
+                                1. <input type="text" id="B1" class="verficationInput" readonly />
+                            </div>
+                            <div class="rescol-50">
+                                2. <input type="text" id="B2" class="verficationInput" readonly />
+                            </div>
+                            <div class="rescol-50">
+                                3. <input type="text" id="B3" class="verficationInput" readonly />
+                            </div>
+                            <div class="rescol-50">
+                                4. <input type="text" id="B4" class="verficationInput" readonly />
+                            </div>
+                            <div class="rescol-50">
+                                5. <input type="text" id="B5" class="verficationInput" readonly />
+                            </div>
+                            <div class="rescol-50">
+                                6. <input type="text" id="B6" class="verficationInput" readonly />
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="resContainer">
+                        <p class="reslabel">C. Student brought the following materials:</p>
+                        <div class="flexRow2">
+                            <div class="rescol-50">
+                                <input type="checkbox" id="C4" class="checkBox" />&nbsp; Class notes
+                            </div>
+                            <div class="rescol-50">
+                                <input type="checkbox" id="C3" class="checkBox" />&nbsp; PowerPoint slides
+                            </div>
+                            <div class="rescol-50">
+                                <input type="checkbox" id="C2" class="checkBox" />&nbsp; Handout(s)/Review sheet(s)
+                            </div>
+                            <div class="rescol-50">
+                                <input type="checkbox" id="C5" class="checkBox" />&nbsp; Syllabus
+                            </div>
+                            <div class="rescol-50">
+                                <input type="checkbox" id="C7" class="checkBox" />&nbsp; None of the above
+                            </div>
+                            <div class="rescol-50">
+                                <input type="checkbox" id="C1" class="checkBox" />&nbsp; Textbook
+                            </div>
+                            <div class="rescol-50"> Other
+                                <input type="text" id="C6" class="verficationInput" readonly />
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="resContainer">
+                        <p class="reslabel">D. Before the session, the student:</p>
+                        <div class="flexRow2">
+                            <div class="rescol-50">
+                                <input type="checkbox" id="D5" class="checkBox" />&nbsp; Consulted instructor
+                            </div>
+                            <div class="rescol-50">
+                                <input type="checkbox" id="D1" class="checkBox" />&nbsp; Read the textbook
+                            </div>
+                            <div class="rescol-50">
+                                <input type="checkbox" id="D3" class="checkBox" />&nbsp; Developed questions
+                            </div>
+                            <div class="rescol-50">
+                                <input type="checkbox" id="D2" class="checkBox" />&nbsp; Reviewed course material (such as class
+                                notes, review sheets, PowerPoint slides, flash cards, etc.)
+                            </div>
+                            <div class="rescol-50">
+                                <input type="checkbox" id="D7" class="checkBox" />&nbsp; None of the above
+                            </div>
+                            <div class="rescol-50">
+                                <input type="checkbox" id="D4" class="checkBox" />&nbsp; Worked on exercises/problems/questions
+                            </div>
+                            <div class="rescol-50"> Other:
+                                <input type="text" id="D6" class="verficationInput" readonly />
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="resContainer">
+                        <p class="reslabel">E. Description of tutoring session:</p>
+                        <div class="flexRow2">
+        
+                            <div class="rescol-50">
+                                <input type="checkbox" id="E9" class="checkBox" />&nbsp; Discussed Graphing Calculator Menus
+                            </div>
+        
+                            <div class="rescol-50">
+                                <input type="checkbox" id="E6" class="checkBox" />&nbsp; Reviewed assignment guidelines
+                            </div>
+        
+                            <div class="rescol-50">
+                                <input type="checkbox" id="E1" class="checkBox" />&nbsp; Discussed concept(s) to gain deeper
+                                understanding
+                            </div>
+        
+                            <div class="rescol-50">
+                                <input type="checkbox" id="E2" class="checkBox" />&nbsp; Reviewed vocabulary/terminology
+                            </div>
+        
+                            <div class="rescol-50">
+                                <input type="checkbox" id="E4" class="checkBox" />&nbsp; Established/Reinforced prerequisite
+                                knowledge
+                            </div>
+        
+                            <div class="rescol-50">
+                                <input type="checkbox" id="E7" class="checkBox" />&nbsp; Reviewed/Practiced study skills and
+                                strategies
+                            </div>
+        
+                            <div class="rescol-50">Other:
+                                <input type="text" id="E8" class="verficationInput" readonly />
+                            </div>
+        
+                            <div class="rescol-50">
+                                <input type="checkbox" id="E10" class="checkBox" />&nbsp; Worked on Homework assignment
+                            </div>
+        
+                            <div class="rescol-50">
+                                <input type="checkbox" id="E3" class="checkBox" />&nbsp; Read/Reviewed textbook and/or other
+                                course material
+                            </div>
+        
+                            <div class="rescol-50">
+                                <input type="checkbox" id="E5" class="checkBox" />&nbsp; Worked on exercises/problems/questions
+                            </div>
+        
+                            <div class="rescol-50">
+                                <input type="checkbox" id="E11" class="checkBox" />&nbsp; Review/correct a graded assignment
+                            </div>
+        
+                            <div class="rescol-50">
+                                <input type="checkbox" id="E12" class="checkBox" />&nbsp; Worked on formulas/applications
+                            </div>
+        
+                            <div class="rescol-50">
+                                <input type="checkbox" id="E13" class="checkBox" />&nbsp; Review/correct a graded exam
+                            </div>
+        
+                        </div>
+                    </div>
+        
+        
+        
+                    <div class="resContainer">
+                        <p class="reslabel">G. Additional information/comments regarding the session:</p>
+                        <div class="row">
+                            <textarea id="G1" rows="6" style="border: 1px solid;" readonly></textarea>
+                        </div>
+                    </div>
+        
+                    <div class="resContainer">
+                        <div class="row">
+                            <label id="lblComment"></label>
+                        </div>
+                    </div>
+        
+                    <div class="resContainer">
+                        <p class="reslabel">H. Referrals:</p>
+                        <div class="row">
+                            <input type="checkbox" id="H1" class="checkBox" />&nbsp; Student was made aware of outstanding
+                            recommendations for Tutoring
+                        </div>
+                        <div class="row">
+                            <div class="reslabel" style="font-weight:bold">&nbsp; How did the student find out about tutoring
+                                recommendation(s)? </div>
+                            <div class="rescol-50"> <input type="checkbox" id="H2" class="checkBox" /> &nbsp; CTAS Frontdesk
+                            </div>
+                            <div class="rescol-50"> <input type="checkbox" id="H3" class="checkBox" /> &nbsp; CTAS Website</div>
+                            <div class="rescol-50"> <input type="checkbox" id="H4" class="checkBox" /> &nbsp; Professor</div>
+                            <div class="rescol-50"> <input type="checkbox" id="H5" class="checkBox" /> &nbsp; Adviser</div>
+                            <div class="rescol-50"> <input type="checkbox" id="H6" class="checkBox" /> &nbsp; Phone</div>
+                            <div class="rescol-50"> <input type="checkbox" id="H7" class="checkBox" /> &nbsp; Other</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add similar HTML markup for sections B to H -->
+        
+            </div>
+        </div>
+    <div class = 'footer'>
+        <div>Center for Tutoring and Academic Support</div>
+    </div>
+</body>
+</html>
